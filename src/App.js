@@ -70,7 +70,7 @@ class App extends Component {
               <br/>
               <div className={'box'}>
                 <input type="text" value={this.state.value} onChange={this.handleChange.bind(this)} /><br/><br/>
-                <button onClick={this.set.bind(this)}>Store Contact Forever (costs 2.01 USD )</button>
+                <button onClick={this.set.bind(this)}>Store Contact Forever (costs 0.70 USD )</button>
               </div>
               
       </div>

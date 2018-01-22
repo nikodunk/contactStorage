@@ -1,37 +1,42 @@
 ---------------------------------------------
  L  O  C  A  L
 
+Get local blockchain up:
 
-	truffle develop
-	
+	ganache-cli
+
+New tab, then open the Truffle console into this test blockchain:
+
+	truffle console
+
+Delete the 'build' folder, then compile in the Truffle Console with (skip if contract is already deployed):
+
 	compile
 	
+Migrate in the Truffle Console with (skip if contract is already deployed):
+
 	migrate	--reset
 
-new tab serve frontend:
-npm run dev
 
-
-
-
-SET CALENDAR:
+Test the contract from the Truffle Console by ADDING A CONTACT:
 	
-	contacts.deployed().then(instance => instance.setContacts('fdsa','fdsa','fdsa'))
+	contactStorage.deployed().then(instance => instance.addContacts('George Jetson'))
 
 
-GET CALENDAR:
+Test the contract from the Truffle Console by GETTING YOUR CONTACTS:
 	
-	contacts.deployed().then(instance => instance.getContacts())
+	contactStorage.deployed().then(instance => instance.getContacts())
 
 
+Or, open a new terminal tab (or close the Truffle Console with Ctrl + C) and run the React frontend:
 
-
+	npm start
 
 
 ---------------------------------------------
 R I N K E B Y
 
-
+To deploy contract:
 
 blockchain sync 
 
@@ -42,37 +47,47 @@ in new tab, compile and deploy contract
 	truffle console --network rinkeby
 
 if you don't have an account:
-x = web3.personal.newAccount('pw')
-web3.eth.getBalance("yourAcctNumber")
-web3.eth.accounts
+
+	x = web3.personal.newAccount('pw')
+	web3.eth.getBalance("yourAcctNumber")
+	web3.eth.accounts
+
+Otherwise, unlock your account:
 
 	web3.personal.unlockAccount("0x2df219a1ae3845ab32a041499db27d4bfdb43876", 'password', 15000)
 
 	web3.personal.unlockAccount("0x43928ec2bb4ea1eb6a77a5fd9caf36ca7b15600f", 'pw', 15000)
 
+Compile and migrate as described in the local version:
+
 	compile
 
 	migrate --reset
 
-to check:
 
-
-SET CALENDAR:
+Test the contract from the Truffle Console by ADDING A CONTACT:
 	
-	contacts.deployed().then(instance => instance.setContacts('Nicholas Dunkel','Simon Maurer','William Dunkel'))
+	contactStorage.deployed().then(instance => instance.addContacts('George Jetson'))
 
 
-GET CALENDAR:
+Test the contract from the Truffle Console by GETTING YOUR CONTACTS:
 	
-	contacts.deployed().then(instance => instance.getContacts())
+	contactStorage.deployed().then(instance => instance.getContacts())
 
-
+Close Ganache, Truffle Console as the contract's now live in Rinkeby!
 
 new tab frontend serve:
 	
-	npm run dev
+	npm start
 
-to deploy:
-	
-	npm run build, copy app.js and index.html to root folder, github push master.
+to deploy to github pages:
 
+change homepage to reflect your github page:
+
+	"homepage": "http://nikodunk.github.io/contactStorage",	
+
+Then run
+
+	npm run build
+
+And copy files to root directory
