@@ -17,15 +17,15 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101128061005e6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b5146044575b600080fd5b3415604e57600080fd5b60546056565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141560e4576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a72305820270a83f043ca8a23e0701d66e3d7e9c7ceb9906397c53f556193c34f87973c9b0029",
-  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b5146044575b600080fd5b3415604e57600080fd5b60546056565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141560e4576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a72305820270a83f043ca8a23e0701d66e3d7e9c7ceb9906397c53f556193c34f87973c9b0029",
+  "bytecode": "0x6060604052341561000f57600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101128061005e6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b5146044575b600080fd5b3415604e57600080fd5b60546056565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141560e4576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a723058202c640d618ff9c11c192b2d31c4c9de85ef155a24c7e07d25a0f70a21cb89af090029",
+  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b5146044575b600080fd5b3415604e57600080fd5b60546056565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141560e4576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a723058202c640d618ff9c11c192b2d31c4c9de85ef155a24c7e07d25a0f70a21cb89af090029",
   "sourceMap": "26:353:1:-;;;209:41;;;;;;;;237:10;229:5;;:18;;;;;;;;;;;;;;;;;;26:353;;;;;;",
   "deployedSourceMap": "26:353:1:-;;;;;;;;;;;;;;;;;;;;;;;;312:65;;;;;;;;;;;;;;;348:5;;;;;;;;;;;334:19;;:10;:19;;;330:44;;;368:5;;;;;;;;;;;355:19;;;330:44;312:65::o",
   "source": "pragma solidity ^0.4.18;\n\ncontract mortal {\n    /* Define variable owner of the type address */\n    address owner;\n\n    /* This function is executed at initialization and sets the owner of the contract */\n    function mortal() { owner = msg.sender; }\n\n    /* Function to recover the funds on the contract */\n    function kill() { if (msg.sender == owner) selfdestruct(owner); }\n}\n\ncontract contactStorage is mortal {\n    \n    bytes32[] public contacts = [bytes32('Your contacts:')];\n\n    /* Save function */\n    function addContacts(bytes32 _newContact) public returns (bool success) {\n        contacts.push(_newContact);\n        return true;\n    }\n\n    /* Retrieve function */\n    function getContacts() constant returns (bytes32[]) {\n        return contacts;\n    }\n}",
-  "sourcePath": "/Users/nikolai/Desktop/stuff/Produce/project_hackathons/Hackathon16 Blockchain/contactStorage react/contracts/contactStorage.sol",
+  "sourcePath": "/Users/nikolai/Desktop/stuff/Produce/project_hackathons/Hackathon16 Blockchain/contactStorage/contracts/contactStorage.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/nikolai/Desktop/stuff/Produce/project_hackathons/Hackathon16 Blockchain/contactStorage react/contracts/contactStorage.sol",
+      "absolutePath": "/Users/nikolai/Desktop/stuff/Produce/project_hackathons/Hackathon16 Blockchain/contactStorage/contracts/contactStorage.sol",
       "exportedSymbols": {
         "contactStorage": [
           118
@@ -869,5 +869,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-22T23:29:36.045Z"
+  "updatedAt": "2018-01-23T02:15:59.907Z"
 }

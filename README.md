@@ -62,7 +62,7 @@ Compile and migrate as described in the local version:
 
 	compile
 
-	migrate --reset
+	migrate --reset --network rinkeby
 
 
 Test the contract from the Truffle Console by ADDING A CONTACT:
