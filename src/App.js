@@ -23,13 +23,13 @@ class App extends Component {
 
   componentWillMount() {
 
-    getWeb3.then(results => {
-      this.setState({
-        web3: results.web3
-      })
-
-      contactStorage.setProvider(this.state.web3.currentProvider)
+    getWeb3
+    .then(results => {
+        this.setState({ web3: results.web3 })
+        contactStorage.setProvider(this.state.web3.currentProvider)
     })
+    .then(res => this.get())
+
   }
 
   
@@ -38,7 +38,7 @@ class App extends Component {
   get(){
       this.state.web3.eth.getAccounts((error, accounts) => {
         contactStorage.deployed()
-                      .then(instance => instance.getContacts({from: this.state.web3.eth.accounts[0]}))
+                      .then(instance => instance.getContacts())
                       .then(result => this.setState({storageValue: result }))
     })
   }
@@ -48,8 +48,10 @@ class App extends Component {
       var _toAdd = this.state.value
       _toAdd = this.state.web3.fromAscii(_toAdd)
       this.state.web3.eth.getAccounts((error, accounts) => {
-        contactStorage.deployed().then(instance => instance.addContacts(_toAdd, {from: this.state.web3.eth.accounts[0]}))     
-    })
+        contactStorage.deployed()
+              .then(instance => instance.addContacts(_toAdd, {from: this.state.web3.eth.accounts[0]}))
+              .then(res => this.get())
+      })
   }
 
   handleChange(event) {
@@ -61,7 +63,7 @@ class App extends Component {
       <div className="App" >
         
               <h1>Ethereum/React Contact List Saver</h1>
-              <h3>Privately secure and retrieve your contact list, only accessible with your personal ETH address. Sign in to the Rinkeby network with Metamask to continue.</h3>
+              <h3>Privately secure and retrieve your contact list, only accessible with your personal ETH address. Sign in to the Rinkeby network with <a href="http://metamask.io">Metamask</a> (desktop) or <a href="http://toshi.org">Toshi</a> (mobile) to continue.</h3>
               <br /><br /><br />
               <span>{this.state.storageValue.map( (result, i) => <p key={i}>{this.state.web3.toAscii(result)}<br/></p> )}</span>
               <button onClick={this.get.bind(this)}>Reload Your Contact List</button>

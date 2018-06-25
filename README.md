@@ -54,7 +54,7 @@ if you don't have an account:
 
 Otherwise, unlock your account:
 
-	web3.personal.unlockAccount("0x2df219a1ae3845ab32a041499db27d4bfdb43876", 'password', 15000)
+	web3.personal.unlockAccount("0x2DF219a1aE3845ab32a041499DB27d4bfDb43876", 'password', 15000)
 
 	web3.personal.unlockAccount("0x43928ec2bb4ea1eb6a77a5fd9caf36ca7b15600f", 'pw', 15000)
 
@@ -79,15 +79,3 @@ Close Ganache, Truffle Console as the contract's now live in Rinkeby!
 new tab frontend serve:
 	
 	npm start
-
-to deploy to github pages:
-
-change homepage to reflect your github page:
-
-	"homepage": "http://nikodunk.github.io/contactStorage",	
-
-Then run
-
-	npm run build
-
-And copy files to root directory
