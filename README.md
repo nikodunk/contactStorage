@@ -79,3 +79,19 @@ Close Ganache, Truffle Console as the contract's now live in Rinkeby!
 new tab frontend serve:
 	
 	npm start
+
+do deploy to gh-pages:
+
+	npm install --save-dev gh-pages
+
+Add the following script in your package.json.
+
+    // ...
+    "scripts": {
+      // ...
+      "deploy": "npm run build&&gh-pages -d build"
+    }
+
+Then run:
+
+	npm run deploy
